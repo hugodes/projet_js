@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/logement/');
+mongoose.connect('mongodb://localhost/logement5/');
 
 
 var HousingSchema = new mongoose.Schema({
@@ -20,3 +20,4 @@ var CitySchema = new mongoose.Schema({
 exports.City = mongoose.model('City', CitySchema);
 
 
+	
