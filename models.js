@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/logement5/');
+mongoose.connect('mongodb://localhost/logement/');
 
 
 var HousingSchema = new mongoose.Schema({

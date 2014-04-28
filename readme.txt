@@ -7,6 +7,7 @@ Voici les modalités d'installation et de fonctionnement de notre projet.
 	3 - Lancer l'API RESTful à l'aide la commande "node index.js"
 	4 - Lancer le script populateDB "bash populateDB.sh"
     5 - Ouvrez le naviguateur et aller à l'adresse (http://localhost/Jouannic/)
+    6 - Pour les tests , executé make à la racine du projet apres avoir installer mocha et chai
 
 
 Pour ce qui est des différentes fonctionnalités :
