@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Hotels</title>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="/Jouannic/" class="navbar-brand">Des logements pour les personnes en difficultés</a>
+            </div>
+        </div>
+    </div>
+    <div id="layout" class="container">
+    <div class="row">
+        <div id="sidebar" class="col-md-4">
+            <ul id="sidebar-menu" class="nav nav-pills nav-stacked">
+            </ul>
+        </div>
+
+        <div id="content" class="col-md-8">
+            Bienvenue dans notre page web dynamique regroupant les différents logements sociaux dans plusieurs ville de France <br />
+            Bonne naviguation!
+        </div>
+    </div>
+    </div>
+
+    <!-- Backbone templates -->
+    <script type="text/template" id="tpl-city-item">
+    <a href="/cities/<%= _id %>"><%= name %></a>
+    </script>
+
+    <script type="text/template" id="tpl-city-detail">
+    <h1><%= name %></h1>
+    <p><%= description %></p>
+    <ul class="housings">
+        <% _.each(housings, function(housing) { %>
+        <li>
+            <a href="/cities/<%= _id %>/housings/<%= housing._id %>"><%= housing.name %></a>
+        </li>
+        <% }); %>
+    </ul>
+    <h2>Create / update housing</h2>
+    <form class="form-inline" id="create-hostel">
+        <input id="form-name" class="form-control" placeholder="Name" type="text" name="name" />
+        <input id="form-desc" class="form-control" placeholder="Desc" type="text" name="description" />
+        <input class="btn btn-primary" type="submit" value="Save" />
+    </form>
+    </script>
+
+    <script type="text/template" id="tpl-housing-detail">
+    <h1><%= name %></h1>
+    <p><%= description %></p>
+    <ul class="comments">
+        <% _.each(comments, function(comment) { %>
+        <li>
+            <%= comment.body %>
+        </li>
+        <% }); %>
+    </ul>
+    </script>
+
+    <!-- Js libraries -->
+    <script src="js/libs/jquery.js"></script>
+    <script src="js/libs/underscore.js"></script>
+    <script src="js/libs/backbone.js"></script>
+
+
+    <script src="app.js"></script>
+    </body>
+</html>
+
+
+<!--
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+<title>Backbone Cellar</title>
+<link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body>
+
+<div id="header">
+    <span class="title">Backbone Cellar</span>
+</div>
+
+<div id="sidebar"></div>
+
+<div id="content">
+<h2>Welcome to Backbone Cellar</h2>
+<p>
+This is a sample application part of of three-part tutorial showing how to build a CRUD application with Backbone.js.
+</p>
+</div>
+
+
+<!-- Templates --><!--
+<script type="text/template" id="tpl-header">
+<button class="new">New Wine</button>
+</script>
+
+<script type="text/template" id="tpl-city-list-item">
+<a href='<%= url %>'><%= name %></a>
+</script>
+
+<script type="text/template" id="tpl-housing-details">
+
+    <div class="form-left-col">
+        <label>Id:</label>
+        <input type="text" id="wineId" name="id" value="<%= id %>" disabled />
+        <label>Name:</label>
+        <input type="text" id="name" name="name" value="<%= name %>" required/>
+    </div>
+
+</script>
+
+<!-- JavaScript --><!--
+<script src="js/libs/jquery.js"></script>
+<script src="js/libs/underscore.js"></script>
+<script src="js/libs/backbone.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Backbone.js Library</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="cities">
+
+	<form id="addCity" action="#">
+	<div><label for="coverImage">CoverImage: </label><input id="coverImage" type="file" />
+ 	<label for="name">Name: </label><input id="name" type="text" />
+ 	<label for="description">Description: </label><input id="description" type="text" />
+ 	<label for="url">Url: </label><input id="url" type="text" />
+ 	<button id="add">Add</button></div>
+	</form>
+    <div class="cityContainer">
+        <img src="placeholder.png"/>
+        <ul>
+            <li>name</li>
+            <li>description</li>
+            <li>url</li>
+        </ul>
+    </div>
+    <script id="cityTemplate" type="text/template">
+        <img src="<%= coverImage %>"/>
+        <ul>
+            <li><%= name %></li>
+            <li><%= description %></li>
+            <li><%= url %></li>
+        </ul>
+    </script>
+
+    <script type="text/template" id="housingTemplate">
+
+    <div class="form-left-col">
+        <label>Id:</label>
+        <input type="text" id="housingId" name="id" value="<%= id %>" disabled />
+        <label>Name:</label>
+        <input type="text" id="name" name="name" value="<%= name %>" required/>
+        <label>Grapes:</label>
+        <input type="text" id="description" name="description" value="<%= description %>"/>
+        <label>Country:</label>
+        <input type="text" id="country" name="country" value="<%= country %>"/>
+        <label>Region:</label>
+        <input type="text" id="region" name="region" value="<%= region %>"/>
+        <label>Year:</label>
+        <input type="text" id="year" name="year" value="<%= year %>"/>
+    </div>
+
+</script>
+</div>
+<script src="js/libs/jquery.js"></script>
+<script src="js/libs/underscore.js"></script>
+<script src="js/libs/backbone.js"></script>
+<script src="test.js"></script>
+</body>
+</html>
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Backbone.js Library</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="Cities">
+    <div class="cityContainer">
+    <!--    <img src="img/placeholder.png"/> -->
+<!--        <ul>
+            <li>Name</li>
+            <li>Description</li>
+            <li>Url</li>
+        </ul>
+    </div>
+</div><!--
+<script id="cityTemplate" type="text/template">
+        <ul>
+            <li><%= name %></li>
+            <li><%= description %></li>
+            <li><%= url %></li>
+        </ul>
+</script>
+<script src="js/libs/jquery.js"></script>
+<script src="js/libs/underscore.js"></script>
+<script src="js/libs/backbone.js"></script>
+<script src="test.js"></script>
+</body>
+</html>-->
