@@ -1,6 +1,6 @@
 Voici les modalités d'installation et de fonctionnement de notre projet.
 	1 - Mettez vous dans votre public_html
-	2 - executez la commande 'git clone git@github.com:hugodes/projet_js.git'
+	2 - executez la commande 'git clone https://github.com/hugodes/projet_js.git'
 	3 - Lancer le service de mongoDB "mongod"
 	4 - Lancez les tests avec la commande "make" (après avoir installé mocha et chai via npm)
 	5 - Lancer l'API RESTful à l'aide la commande "node index.js"
